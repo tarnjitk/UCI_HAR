@@ -20,3 +20,11 @@ plot(cars)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+To tidy it, we need to gather the non-variable columns into a two-column key-value pair.
+
+When gathering variables, we need to provide the name of the new key-value columns to create. 
+
+The first argument, is the name of the key column, which is the name of the variable defined by the values of the column headings. 
+
