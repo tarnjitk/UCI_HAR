@@ -8,6 +8,7 @@
 #   "UCI_HAR_Dataset/train/X_train.txt", 
 #   "UCI_HAR_Dataset/train/y_train.txt"
 #   
+#   'features.txt': List of all features. The variable names of the 561 variables in X_* data.  
 
   file_list_dir <- list("UCI_HAR_Dataset/test/subject_test.txt", "UCI_HAR_Dataset/test/X_test.txt", 
                         "UCI_HAR_Dataset/test/y_test.txt", 
@@ -22,6 +23,8 @@
   subject_train <- read.table("UCI_HAR_Dataset/train/subject_train.txt")
   X_train <- read.table("UCI_HAR_Dataset/train/X_train.txt")
   y_train <- read.table("UCI_HAR_Dataset/train/y_train.txt")
+  
+  
   
 #  activityType <- factor(y_test$V1,  levels = 1:6, labels = c("WALKING", "WALKING_UPSTAIRS", 
 #                        "WALKING_DOWNSTAIRS", "SITTING", "STANDING", 
