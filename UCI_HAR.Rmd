@@ -1,0 +1,55 @@
+---
+title: "UCI_HAR Cook Book"
+author: "Tarnjit Kaur Johal"
+date: "September, 2015"
+output: html_document
+---
+
+# Purpose of the Cook Book
+This cookbook describes the process of cleaning and tidying data using the run_analysis.R R script. It also describes the variables of the tidy data produced at the end of this process of cleaning and tidying.
+
+This script does the following:
+* Merges the training and the test sets to create one data set.
+* Extracts only the measurements on the mean and standard deviation for each measurement. 
+* Uses descriptive activity names to name the activities in the data set
+* Appropriately labels the data set with descriptive variable names. 
+* From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+# Recipe steps in the R script run_analysis.R
+
+1. IMPORT Data files
+       "UCI_HAR_Dataset/test/subject_test.txt", id of participant
+       "UCI_HAR_Dataset/test/X_test.txt", 561 variables
+       "UCI_HAR_Dataset/test/y_test.txt", integer which corresponds to activityType
+       "UCI_HAR_Dataset/train/subject_train.txt", 
+       "UCI_HAR_Dataset/train/X_train.txt", 
+       "UCI_HAR_Dataset/train/y_train.txt"   
+      'features.txt': List of all features. The variable names of the 561 variables in X_* data.  
+      
+2. Using bind_rows(a, b) to append the training data to the bottom of the test data.
+
+3. Associate the key from activityType to Ydata
+
+4. Using features.txt for the variable names in X_data
+
+5. Using bind_cols(a, b) to append the activity data (YData) and subject data columns to Xdata.
+
+6. Extracts only the measurements on the mean and standard deviation for each measurement.  
+
+7. Create an independent tidy data set with the average of each variable for each activity and each subject.
+
+
+# Description of Variables in the tidy dataset: GCD_projectData.txt
+
+1. activityType
+   The type of activity being carried out during the specific measurements. There are 6 categories of activities: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING.
+
+2. subjectNum
+  The subject number corresponds to the identity of the person carrying ou the activities being measured.
+
+3. key
+  The key descibes the type of actual measurement as described by Jorge L. Reyes-Ortiz et al. in their publication: Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+  
+4. averageActivitySignal
+ The average activity signal is the average taken of the standard deviation and mean of the measured signals referred to by the key.
+
